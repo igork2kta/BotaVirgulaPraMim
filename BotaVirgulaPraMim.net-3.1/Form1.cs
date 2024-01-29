@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BotaVirgulaPraMim.net_3._1
 {
@@ -20,7 +17,7 @@ namespace BotaVirgulaPraMim.net_3._1
             string helpText = $@"O caractere de separação considerado é a quebra de linha (\n)
 Data de compilação: {DateTime.Now}";
 
-             toolTip.SetToolTip(lbl_help, helpText);
+            toolTip.SetToolTip(lbl_help, helpText);
 
         }
 

@@ -150,6 +150,7 @@
             // 
             // lbl_help
             // 
+            lbl_help.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             lbl_help.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             lbl_help.Image = Properties.Resources.HelpTableOfContents;
             lbl_help.Location = new System.Drawing.Point(768, 423);
