@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BotaVirgulaPraMim.net_3._1
 {
@@ -15,6 +11,17 @@ namespace BotaVirgulaPraMim.net_3._1
         public Form1()
         {
             InitializeComponent();
+            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+            toolTip.SetToolTip(cb_in, "Insira o nome da coluna.");
+            toolTip.SetToolTip(tb_in, "Insira o nome da coluna.");
+            toolTip.SetToolTip(CB_quebraLinha, "Remove a quebra de linha.");
+
+
+            string helpText = $@"O caractere de separação considerado é a quebra de linha (\n)
+Data de compilação: {DateTime.Now}";
+
+             toolTip.SetToolTip(lbl_help, helpText);
+
         }
 
         private void cb_in_CheckedChanged(object sender, EventArgs e)
@@ -38,7 +45,7 @@ namespace BotaVirgulaPraMim.net_3._1
                 if (cb_aspas.Checked && !string.IsNullOrEmpty(split[i])) split[i] = "'" + split[i] + "'";
 
                 //Vírgula
-                if (cb_virgula.Checked && i != split.Length - 1 && !string.IsNullOrEmpty(split[i+1]))
+                if (cb_virgula.Checked && i != split.Length - 1 && !string.IsNullOrEmpty(split[i + 1]))
                 {
                     if (!cb_in.Checked)
                         split[i] += ",";

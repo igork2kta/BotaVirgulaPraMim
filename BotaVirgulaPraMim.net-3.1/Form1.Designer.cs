@@ -39,6 +39,7 @@
             cb_aspas = new System.Windows.Forms.CheckBox();
             cb_virgula = new System.Windows.Forms.CheckBox();
             btn_pronto = new System.Windows.Forms.Button();
+            lbl_help = new System.Windows.Forms.Label();
             SuspendLayout();
             // 
             // tb_dados
@@ -147,11 +148,21 @@
             btn_pronto.UseVisualStyleBackColor = true;
             btn_pronto.Click += btn_pronto_Click;
             // 
+            // lbl_help
+            // 
+            lbl_help.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbl_help.Image = Properties.Resources.HelpTableOfContents;
+            lbl_help.Location = new System.Drawing.Point(768, 423);
+            lbl_help.Name = "lbl_help";
+            lbl_help.Size = new System.Drawing.Size(20, 18);
+            lbl_help.TabIndex = 19;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(lbl_help);
             Controls.Add(label1);
             Controls.Add(tb_commit);
             Controls.Add(cb_commit);
@@ -164,6 +175,7 @@
             Controls.Add(tb_dados);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
+            Text = "Bota Vírgula pra Mim";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -180,5 +192,6 @@
         private System.Windows.Forms.CheckBox cb_aspas;
         private System.Windows.Forms.CheckBox cb_virgula;
         private System.Windows.Forms.Button btn_pronto;
+        private System.Windows.Forms.Label lbl_help;
     }
 }
