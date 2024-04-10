@@ -8,22 +8,18 @@ namespace BotaVirgulaPraMim.net_3._1
         public Form1()
         {
             InitializeComponent();
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+            ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(cb_in, "Insira o nome da coluna.");
             toolTip.SetToolTip(tb_in, "Insira o nome da coluna.");
             toolTip.SetToolTip(CB_quebraLinha, "Remove a quebra de linha.");
 
 
             string helpText = $@"O caractere de separação considerado é a quebra de linha (\n)
-Data de compilação: {DateTime.Now}";
+Data de compilação: 10/04/2024
+Versão 1.1.1";
 
             toolTip.SetToolTip(lbl_help, helpText);
 
-        }
-
-        private void cb_in_CheckedChanged(object sender, EventArgs e)
-        {
-            tb_in.Enabled = cb_in.Checked;
         }
 
         private void btn_pronto_Click(object sender, EventArgs e) => executar();
@@ -79,5 +75,38 @@ Data de compilação: {DateTime.Now}";
 
         }
 
+        private void cb_in_CheckedChanged(object sender, EventArgs e)
+        {
+            tb_in.Enabled = cb_in.Checked;
+
+            if (cb_in.Checked)
+            {
+                cb_aspas.Checked = true;
+                cb_virgula.Checked = true;
+                cb_commit.Checked = false;
+            }
+
+        }
+
+        private void cb_commit_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_commit.Checked)
+            {
+                cb_aspas.Checked = false;
+                cb_virgula.Checked = false;
+                cb_in.Checked = false;
+            }
+            tb_commit.Enabled = cb_commit.Checked;
+        }
+
+        private void cb_virgula_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_virgula.Checked) cb_commit.Checked = false;
+        }
+
+        private void cb_aspas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_aspas.Checked) cb_commit.Checked = false;
+        }
     }
 }

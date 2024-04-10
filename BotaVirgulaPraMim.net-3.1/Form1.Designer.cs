@@ -66,6 +66,7 @@
             // tb_commit
             // 
             tb_commit.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            tb_commit.Enabled = false;
             tb_commit.Location = new System.Drawing.Point(611, 170);
             tb_commit.Name = "tb_commit";
             tb_commit.Size = new System.Drawing.Size(106, 23);
@@ -81,6 +82,7 @@
             cb_commit.TabIndex = 16;
             cb_commit.Text = "Commit a cada";
             cb_commit.UseVisualStyleBackColor = true;
+            cb_commit.CheckedChanged += cb_commit_CheckedChanged;
             // 
             // CB_quebraLinha
             // 
@@ -98,6 +100,7 @@
             // tb_in
             // 
             tb_in.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            tb_in.Enabled = false;
             tb_in.Location = new System.Drawing.Point(611, 116);
             tb_in.Name = "tb_in";
             tb_in.Size = new System.Drawing.Size(177, 23);
@@ -125,6 +128,7 @@
             cb_aspas.TabIndex = 12;
             cb_aspas.Text = "Aspas";
             cb_aspas.UseVisualStyleBackColor = true;
+            cb_aspas.CheckedChanged += cb_aspas_CheckedChanged;
             // 
             // cb_virgula
             // 
@@ -136,6 +140,7 @@
             cb_virgula.TabIndex = 11;
             cb_virgula.Text = "Vírgula";
             cb_virgula.UseVisualStyleBackColor = true;
+            cb_virgula.CheckedChanged += cb_virgula_CheckedChanged;
             // 
             // btn_pronto
             // 
