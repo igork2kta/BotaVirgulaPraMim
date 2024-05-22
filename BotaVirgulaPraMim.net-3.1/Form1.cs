@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace BotaVirgulaPraMim.net_3._1
@@ -13,10 +14,10 @@ namespace BotaVirgulaPraMim.net_3._1
             toolTip.SetToolTip(tb_in, "Insira o nome da coluna.");
             toolTip.SetToolTip(CB_quebraLinha, "Remove a quebra de linha.");
 
-
+            string version = Regex.Match(Application.ProductVersion, @"^\d+\.\d+\.\d+").Value;
             string helpText = $@"O caractere de separação considerado é a quebra de linha (\n)
-Data de compilação: 10/04/2024
-Versão 1.1.1";
+Data de compilação: 22/05/2024
+Versão: {version}";
 
             toolTip.SetToolTip(lbl_help, helpText);
 
@@ -27,6 +28,19 @@ Versão 1.1.1";
 
         private void executar()
         {
+
+            if (cb_in.Checked && string.IsNullOrEmpty(tb_in.Text))
+            {
+                MessageBox.Show("Para utilizar a função \"IN\" o nome do campo precisa ser preenchido!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cb_commit.Checked && string.IsNullOrEmpty(tb_commit.Text))
+            {
+                MessageBox.Show("Para utilizar a função \"COMMIT\" o intervalo de linhas precisa ser preenchido!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             String[] split = tb_dados.Text.Split('\n');
 
             for (int i = 0; i < split.Length; i++)
@@ -107,6 +121,15 @@ Versão 1.1.1";
         private void cb_aspas_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_aspas.Checked) cb_commit.Checked = false;
+        }
+
+        private void tb_commit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Impede que um caractere não numérico seja inserido no TextBox
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
         }
     }
 }

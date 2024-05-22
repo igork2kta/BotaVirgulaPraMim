@@ -71,6 +71,7 @@
             tb_commit.Name = "tb_commit";
             tb_commit.Size = new System.Drawing.Size(106, 23);
             tb_commit.TabIndex = 17;
+            tb_commit.KeyPress += tb_commit_KeyPress;
             // 
             // cb_commit
             // 
