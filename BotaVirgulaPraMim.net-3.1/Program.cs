@@ -1,9 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
 
+[assembly: AssemblyVersion("1.1.1")]
+[assembly: AssemblyMetadata("BuildDate", "2024-04-10")]
 namespace BotaVirgulaPraMim.net_3._1
 {
     internal static class Program

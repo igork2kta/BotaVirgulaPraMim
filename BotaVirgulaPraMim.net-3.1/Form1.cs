@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Text.RegularExpressions;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace BotaVirgulaPraMim.net_3._1
@@ -14,10 +15,14 @@ namespace BotaVirgulaPraMim.net_3._1
             toolTip.SetToolTip(tb_in, "Insira o nome da coluna.");
             toolTip.SetToolTip(CB_quebraLinha, "Remove a quebra de linha.");
 
-            string version = Regex.Match(Application.ProductVersion, @"^\d+\.\d+\.\d+").Value;
+            string assemblyPath = Assembly.GetExecutingAssembly().Location;
+
+            // Obter a data de criação do arquivo do assembly
+            DateTime creationDate = File.GetCreationTime(assemblyPath);
+
             string helpText = $@"O caractere de separação considerado é a quebra de linha (\n)
-Data de compilação: 22/05/2024
-Versão: {version}";
+Data de compilação: {creationDate}
+Versão {Assembly.GetEntryAssembly().GetName().Version}";
 
             toolTip.SetToolTip(lbl_help, helpText);
 
@@ -128,7 +133,7 @@ Versão: {version}";
             // Impede que um caractere não numérico seja inserido no TextBox
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
         }
     }
