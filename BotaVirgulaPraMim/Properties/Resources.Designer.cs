@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BotaVirgulaPraMim.net_3._1.Properties {
+namespace BotaVirgulaPraMim.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BotaVirgulaPraMim.net_3._1.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BotaVirgulaPraMim.net_3._1.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BotaVirgulaPraMim.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,16 +57,6 @@ namespace BotaVirgulaPraMim.net_3._1.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap HelpTableOfContents {
-            get {
-                object obj = ResourceManager.GetObject("HelpTableOfContents", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

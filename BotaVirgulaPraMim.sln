@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotaVirgulaPraMim.net-3.1", "BotaVirgulaPraMim.net-3.1\BotaVirgulaPraMim.net-3.1.csproj", "{6DEA23C3-9753-4B71-85F4-BD789B18AAD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotaVirgulaPraMim", "BotaVirgulaPraMim\BotaVirgulaPraMim.csproj", "{6DEA23C3-9753-4B71-85F4-BD789B18AAD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

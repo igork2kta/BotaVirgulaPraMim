@@ -15,10 +15,8 @@ namespace BotaVirgulaPraMim.net_3._1
             toolTip.SetToolTip(tb_in, "Insira o nome da coluna.");
             toolTip.SetToolTip(CB_quebraLinha, "Remove a quebra de linha.");
 
-            string assemblyPath = Assembly.GetExecutingAssembly().Location;
-
             // Obter a data de criação do arquivo do assembly
-            DateTime creationDate = File.GetCreationTime(assemblyPath);
+            DateTime creationDate = File.GetLastWriteTime(Assembly.GetExecutingAssembly().Location);
 
             string helpText = $@"O caractere de separação considerado é a quebra de linha (\n)
 Data de compilação: {creationDate}
@@ -89,9 +87,8 @@ Versão {Assembly.GetEntryAssembly().GetName().Version}";
 
             }
 
-            MessageBox.Show("Copiado para área de transferência!");
             Clipboard.SetText(string.Join("", split));
-
+            MessageBox.Show("Copiado para área de transferência!");
         }
 
         private void cb_in_CheckedChanged(object sender, EventArgs e)
