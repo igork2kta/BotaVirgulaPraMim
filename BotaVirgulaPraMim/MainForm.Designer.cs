@@ -1,6 +1,6 @@
 ﻿namespace BotaVirgulaPraMim.net_3._1
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             tb_dados = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             tb_commit = new System.Windows.Forms.TextBox();
