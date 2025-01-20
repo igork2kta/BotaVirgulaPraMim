@@ -6,7 +6,8 @@
     <RootNamespace>BotaVirgulaPraMim</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
-    <FileVersion>1.1.2</FileVersion>
+    <FileVersion>1.2.0</FileVersion>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -87,7 +87,14 @@ Versão {Assembly.GetEntryAssembly().GetName().Version}";
 
             }
 
-            Clipboard.SetText(string.Join("", split));
+            string text = string.Join("", split);
+
+            if (rb_upper.Checked)
+                Clipboard.SetText(text.ToUpper());
+            else if (rb_lower.Checked)
+                Clipboard.SetText(text.ToLower()); 
+
+            
             MessageBox.Show("Copiado para área de transferência!");
         }
 

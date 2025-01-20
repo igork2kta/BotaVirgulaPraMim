@@ -40,6 +40,11 @@
             cb_virgula = new System.Windows.Forms.CheckBox();
             btn_pronto = new System.Windows.Forms.Button();
             lbl_help = new System.Windows.Forms.Label();
+            rb_upper = new System.Windows.Forms.RadioButton();
+            rb_lower = new System.Windows.Forms.RadioButton();
+            groupBox = new System.Windows.Forms.GroupBox();
+            rb_semCase = new System.Windows.Forms.RadioButton();
+            groupBox.SuspendLayout();
             SuspendLayout();
             // 
             // tb_dados
@@ -164,11 +169,56 @@
             lbl_help.Size = new System.Drawing.Size(20, 18);
             lbl_help.TabIndex = 19;
             // 
-            // Form1
+            // rb_upper
+            // 
+            rb_upper.AutoSize = true;
+            rb_upper.Location = new System.Drawing.Point(20, 22);
+            rb_upper.Name = "rb_upper";
+            rb_upper.Size = new System.Drawing.Size(91, 19);
+            rb_upper.TabIndex = 20;
+            rb_upper.Text = "UPPER CASE";
+            rb_upper.UseVisualStyleBackColor = true;
+            // 
+            // rb_lower
+            // 
+            rb_lower.AutoSize = true;
+            rb_lower.Location = new System.Drawing.Point(20, 47);
+            rb_lower.Name = "rb_lower";
+            rb_lower.Size = new System.Drawing.Size(80, 19);
+            rb_lower.TabIndex = 21;
+            rb_lower.Text = "lower case";
+            rb_lower.UseVisualStyleBackColor = true;
+            // 
+            // groupBox
+            // 
+            groupBox.Controls.Add(rb_semCase);
+            groupBox.Controls.Add(rb_upper);
+            groupBox.Controls.Add(rb_lower);
+            groupBox.Location = new System.Drawing.Point(593, 220);
+            groupBox.Name = "groupBox";
+            groupBox.Size = new System.Drawing.Size(195, 100);
+            groupBox.TabIndex = 23;
+            groupBox.TabStop = false;
+            groupBox.Text = "Case";
+            // 
+            // rb_semCase
+            // 
+            rb_semCase.AutoSize = true;
+            rb_semCase.Checked = true;
+            rb_semCase.Location = new System.Drawing.Point(20, 72);
+            rb_semCase.Name = "rb_semCase";
+            rb_semCase.Size = new System.Drawing.Size(87, 19);
+            rb_semCase.TabIndex = 23;
+            rb_semCase.TabStop = true;
+            rb_semCase.Text = "Não Case rs";
+            rb_semCase.UseVisualStyleBackColor = true;
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(groupBox);
             Controls.Add(lbl_help);
             Controls.Add(label1);
             Controls.Add(tb_commit);
@@ -181,8 +231,10 @@
             Controls.Add(btn_pronto);
             Controls.Add(tb_dados);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Bota Vírgula pra Mim";
+            groupBox.ResumeLayout(false);
+            groupBox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,5 +252,9 @@
         private System.Windows.Forms.CheckBox cb_virgula;
         private System.Windows.Forms.Button btn_pronto;
         private System.Windows.Forms.Label lbl_help;
+        private System.Windows.Forms.RadioButton rb_upper;
+        private System.Windows.Forms.RadioButton rb_lower;
+        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.RadioButton rb_semCase;
     }
 }
