@@ -44,6 +44,8 @@
             rb_lower = new System.Windows.Forms.RadioButton();
             groupBox = new System.Windows.Forms.GroupBox();
             rb_semCase = new System.Windows.Forms.RadioButton();
+            cb_where = new System.Windows.Forms.CheckBox();
+            tb_quebra_linha = new System.Windows.Forms.TextBox();
             groupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -162,7 +164,7 @@
             // lbl_help
             // 
             lbl_help.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            lbl_help.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbl_help.Font = new System.Drawing.Font("Segoe UI", 10F);
             lbl_help.Image = (System.Drawing.Image)resources.GetObject("lbl_help.Image");
             lbl_help.Location = new System.Drawing.Point(768, 423);
             lbl_help.Name = "lbl_help";
@@ -194,7 +196,7 @@
             groupBox.Controls.Add(rb_semCase);
             groupBox.Controls.Add(rb_upper);
             groupBox.Controls.Add(rb_lower);
-            groupBox.Location = new System.Drawing.Point(593, 220);
+            groupBox.Location = new System.Drawing.Point(593, 237);
             groupBox.Name = "groupBox";
             groupBox.Size = new System.Drawing.Size(195, 100);
             groupBox.TabIndex = 23;
@@ -213,11 +215,33 @@
             rb_semCase.Text = "Não Case rs";
             rb_semCase.UseVisualStyleBackColor = true;
             // 
+            // cb_where
+            // 
+            cb_where.AutoSize = true;
+            cb_where.Location = new System.Drawing.Point(595, 199);
+            cb_where.Name = "cb_where";
+            cb_where.Size = new System.Drawing.Size(60, 19);
+            cb_where.TabIndex = 24;
+            cb_where.Text = "Where";
+            cb_where.UseVisualStyleBackColor = true;
+            cb_where.CheckedChanged += cb_where_CheckedChanged;
+            // 
+            // tb_quebra_linha
+            // 
+            tb_quebra_linha.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            tb_quebra_linha.Location = new System.Drawing.Point(711, 62);
+            tb_quebra_linha.Name = "tb_quebra_linha";
+            tb_quebra_linha.Size = new System.Drawing.Size(37, 23);
+            tb_quebra_linha.TabIndex = 25;
+            tb_quebra_linha.Text = "\\n";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(tb_quebra_linha);
+            Controls.Add(cb_where);
             Controls.Add(groupBox);
             Controls.Add(lbl_help);
             Controls.Add(label1);
@@ -256,5 +280,7 @@
         private System.Windows.Forms.RadioButton rb_lower;
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.RadioButton rb_semCase;
+        private System.Windows.Forms.CheckBox cb_where;
+        private System.Windows.Forms.TextBox tb_quebra_linha;
     }
 }

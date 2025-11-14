@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace BotaVirgulaPraMim.net_3._1
@@ -18,8 +19,7 @@ namespace BotaVirgulaPraMim.net_3._1
             // Obter a data de criação do arquivo do assembly
             DateTime creationDate = File.GetLastWriteTime(Assembly.GetExecutingAssembly().Location);
 
-            string helpText = $@"O caractere de separação considerado é a quebra de linha (\n)
-Data de compilação: {creationDate}
+            string helpText = $@"Data de compilação: {creationDate}
 Versão {Assembly.GetEntryAssembly().GetName().Version}";
 
             toolTip.SetToolTip(lbl_help, helpText);
@@ -44,12 +44,27 @@ Versão {Assembly.GetEntryAssembly().GetName().Version}";
                 return;
             }
 
-            String[] split = tb_dados.Text.Split('\n');
+            if (CB_quebraLinha.Checked && string.IsNullOrEmpty(tb_quebra_linha.Text))
+                tb_quebra_linha.Text = "\\n";
+            // Substitui sequências comuns por seus equivalentes reais
+            string separador = tb_quebra_linha.Text
+                .Replace("\\r\\n", "\r\n")
+                .Replace("\\n", "\n")
+                .Replace("\\r", "\r")
+                .Replace("\\t", "\t");
+
+
+            // divide, mas mantém o separador no resultado
+            string[] split = Regex.Split(tb_dados.Text, $"(?={Regex.Escape(separador)})");
+            
+            //String[] split = tb_dados.Text.Split(separador);
 
             for (int i = 0; i < split.Length; i++)
             {
                 split[i] = split[i].Replace("\r", "");
+                split[i] = split[i].Replace("\n", "");
 
+                if (string.IsNullOrEmpty(split[i])) continue;
 
                 //Aspas
                 if (cb_aspas.Checked && !string.IsNullOrEmpty(split[i])) split[i] = "'" + split[i] + "'";
@@ -79,7 +94,8 @@ Versão {Assembly.GetEntryAssembly().GetName().Version}";
                 }
 
                 //Quebra de linha
-                if (CB_quebraLinha.Checked) split[i] += '\n';
+                if (CB_quebraLinha.Checked &&
+                    !(split[i].EndsWith("\n") || split[i].StartsWith("\n"))) split[i] += '\n';
 
                 //Se o commit estiver habilitado E  (estiver no intervalo definido OU for a ultima linha)
                 //ou
@@ -92,9 +108,10 @@ Versão {Assembly.GetEntryAssembly().GetName().Version}";
             if (rb_upper.Checked)
                 Clipboard.SetText(text.ToUpper());
             else if (rb_lower.Checked)
-                Clipboard.SetText(text.ToLower()); 
+                Clipboard.SetText(text.ToLower());
+            else
+                Clipboard.SetText(text);
 
-            
             MessageBox.Show("Copiado para área de transferência!");
         }
 
@@ -107,6 +124,7 @@ Versão {Assembly.GetEntryAssembly().GetName().Version}";
                 cb_aspas.Checked = true;
                 cb_virgula.Checked = true;
                 cb_commit.Checked = false;
+                cb_where.Checked = false;
             }
 
         }
@@ -138,6 +156,17 @@ Versão {Assembly.GetEntryAssembly().GetName().Version}";
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void cb_where_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_where.Checked)
+            {
+                cb_aspas.Checked = false;
+                cb_virgula.Checked = false;
+                cb_in.Checked = false;
+                cb_commit.Checked = false;
             }
         }
     }
