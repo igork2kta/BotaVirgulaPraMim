@@ -46,6 +46,7 @@
             rb_semCase = new System.Windows.Forms.RadioButton();
             cb_where = new System.Windows.Forms.CheckBox();
             tb_quebra_linha = new System.Windows.Forms.TextBox();
+            cb_removerDuplicatas = new System.Windows.Forms.CheckBox();
             groupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             // 
             label1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(723, 173);
+            label1.Location = new System.Drawing.Point(723, 202);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(41, 15);
             label1.TabIndex = 18;
@@ -74,7 +75,7 @@
             // 
             tb_commit.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             tb_commit.Enabled = false;
-            tb_commit.Location = new System.Drawing.Point(611, 170);
+            tb_commit.Location = new System.Drawing.Point(611, 199);
             tb_commit.Name = "tb_commit";
             tb_commit.Size = new System.Drawing.Size(106, 23);
             tb_commit.TabIndex = 17;
@@ -84,7 +85,7 @@
             // 
             cb_commit.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             cb_commit.AutoSize = true;
-            cb_commit.Location = new System.Drawing.Point(593, 145);
+            cb_commit.Location = new System.Drawing.Point(593, 174);
             cb_commit.Name = "cb_commit";
             cb_commit.Size = new System.Drawing.Size(107, 19);
             cb_commit.TabIndex = 16;
@@ -98,7 +99,7 @@
             CB_quebraLinha.AutoSize = true;
             CB_quebraLinha.Checked = true;
             CB_quebraLinha.CheckState = System.Windows.Forms.CheckState.Checked;
-            CB_quebraLinha.Location = new System.Drawing.Point(592, 66);
+            CB_quebraLinha.Location = new System.Drawing.Point(592, 68);
             CB_quebraLinha.Name = "CB_quebraLinha";
             CB_quebraLinha.Size = new System.Drawing.Size(113, 19);
             CB_quebraLinha.TabIndex = 15;
@@ -109,7 +110,7 @@
             // 
             tb_in.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             tb_in.Enabled = false;
-            tb_in.Location = new System.Drawing.Point(611, 116);
+            tb_in.Location = new System.Drawing.Point(611, 145);
             tb_in.Name = "tb_in";
             tb_in.Size = new System.Drawing.Size(177, 23);
             tb_in.TabIndex = 14;
@@ -118,7 +119,7 @@
             // 
             cb_in.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             cb_in.AutoSize = true;
-            cb_in.Location = new System.Drawing.Point(593, 91);
+            cb_in.Location = new System.Drawing.Point(593, 120);
             cb_in.Name = "cb_in";
             cb_in.Size = new System.Drawing.Size(36, 19);
             cb_in.TabIndex = 13;
@@ -130,7 +131,7 @@
             // 
             cb_aspas.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             cb_aspas.AutoSize = true;
-            cb_aspas.Location = new System.Drawing.Point(592, 41);
+            cb_aspas.Location = new System.Drawing.Point(592, 42);
             cb_aspas.Name = "cb_aspas";
             cb_aspas.Size = new System.Drawing.Size(57, 19);
             cb_aspas.TabIndex = 12;
@@ -196,7 +197,7 @@
             groupBox.Controls.Add(rb_semCase);
             groupBox.Controls.Add(rb_upper);
             groupBox.Controls.Add(rb_lower);
-            groupBox.Location = new System.Drawing.Point(593, 237);
+            groupBox.Location = new System.Drawing.Point(593, 266);
             groupBox.Name = "groupBox";
             groupBox.Size = new System.Drawing.Size(195, 100);
             groupBox.TabIndex = 23;
@@ -218,7 +219,7 @@
             // cb_where
             // 
             cb_where.AutoSize = true;
-            cb_where.Location = new System.Drawing.Point(595, 199);
+            cb_where.Location = new System.Drawing.Point(595, 228);
             cb_where.Name = "cb_where";
             cb_where.Size = new System.Drawing.Size(60, 19);
             cb_where.TabIndex = 24;
@@ -235,11 +236,22 @@
             tb_quebra_linha.TabIndex = 25;
             tb_quebra_linha.Text = "\\n";
             // 
+            // cb_removerDuplicatas
+            // 
+            cb_removerDuplicatas.AutoSize = true;
+            cb_removerDuplicatas.Location = new System.Drawing.Point(593, 94);
+            cb_removerDuplicatas.Name = "cb_removerDuplicatas";
+            cb_removerDuplicatas.Size = new System.Drawing.Size(130, 19);
+            cb_removerDuplicatas.TabIndex = 26;
+            cb_removerDuplicatas.Text = "Remover duplicatas";
+            cb_removerDuplicatas.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(cb_removerDuplicatas);
             Controls.Add(tb_quebra_linha);
             Controls.Add(cb_where);
             Controls.Add(groupBox);
@@ -282,5 +294,6 @@
         private System.Windows.Forms.RadioButton rb_semCase;
         private System.Windows.Forms.CheckBox cb_where;
         private System.Windows.Forms.TextBox tb_quebra_linha;
+        private System.Windows.Forms.CheckBox cb_removerDuplicatas;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -19,8 +20,8 @@ namespace BotaVirgulaPraMim.net_3._1
             // Obter a data de criação do arquivo do assembly
             DateTime creationDate = File.GetLastWriteTime(Assembly.GetExecutingAssembly().Location);
 
-            string helpText = $@"Data de compilação: {creationDate}
-Versão {Assembly.GetEntryAssembly().GetName().Version}";
+            string helpText = $@"Data de compilação: {creationDate}" +
+                                "Versão {Assembly.GetEntryAssembly().GetName().Version}";
 
             toolTip.SetToolTip(lbl_help, helpText);
 
@@ -53,15 +54,26 @@ Versão {Assembly.GetEntryAssembly().GetName().Version}";
                 .Replace("\\r", "\r")
                 .Replace("\\t", "\t");
 
-
-            // divide, mas mantém o separador no resultado
-            string[] split = Regex.Split(tb_dados.Text, $"(?={Regex.Escape(separador)})");
+            int totalDepois = 0, totalAntes = 0;
             
-            //String[] split = tb_dados.Text.Split(separador);
+            // divide, mas mantém o separador no resultado
+            string[] split = Regex.Split(tb_dados.Text, $"(?<={Regex.Escape(separador)})");
+
+            totalAntes = split.Length;
+
+            if (cb_removerDuplicatas.Checked)
+            {
+                split = split.Select(s => s.Trim()).Distinct().ToArray();
+                totalDepois = totalAntes - split.Length;
+
+
+            }
+                
+        
 
             for (int i = 0; i < split.Length; i++)
             {
-                split[i] = split[i].Replace("\r", "");
+                   
                 split[i] = split[i].Replace("\n", "");
 
                 if (string.IsNullOrEmpty(split[i])) continue;
@@ -112,7 +124,12 @@ Versão {Assembly.GetEntryAssembly().GetName().Version}";
             else
                 Clipboard.SetText(text);
 
-            MessageBox.Show("Copiado para área de transferência!");
+            string mensagem = "Copiado para área de transferência!";
+
+            if (cb_removerDuplicatas.Checked)
+                mensagem += $"\n{totalDepois} duplicatas removidas.";
+
+            MessageBox.Show(mensagem);
         }
 
         private void cb_in_CheckedChanged(object sender, EventArgs e)
